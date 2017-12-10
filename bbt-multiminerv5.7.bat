@@ -43,10 +43,12 @@ SET MONA_WALLET_ADDRESS=MQNdSYyFLMDSeif56dK3BV81fTjUNebTCc
 rem *** Miner login for pools like suprnova.cc
 rem *** dont get excited, our primary mining weblogin is not bitsbetrippin, used as example
 rem *** MUST UPDATE JSON FILE FOR NVIDIA XMR FOR USER INFO
+rem *** MINER_NAME2 - lyra2z algo***
 
 SET MINER_WEBLOGIN=bitsbetrippin
 SET WORKER_PASSWORD=x
 SET MINER_NAME=bbtworker01
+SET MINER_NAME2=bbtworker02
 SET EMAIL_ADDRESS=bitsbetrippin1@gmail.com
 
 setx GPU_FORCE_64BIT_PTR 0 >nul 2>&1
@@ -376,7 +378,7 @@ IF %M%==76 GOTO krb3
 IF %M%==77 GOTO zcash4
 IF %M%==78 GOTO zcash5
 IF %M%==79 GOTO mona1
-IF %M%==80 GOTO mona1
+IF %M%==80 GOTO mona2
 IF %M% GTR 81 GOTO EOF
 
 ::
@@ -769,13 +771,13 @@ pause
 ::
 :xzc1
 ECHO CCMiner YIIMP - Nvidia Only - Zcoin to Miningpoolhub
-Miners\ccminer-x64-2.2.2-cuda9\ccminer-x64.exe -a lyra2z -o stratum+tcp://us-east.zcoin.miningpoolhub.com:20581 -u %MINER_WEBLOGIN%.%MINER_NAME% -p %WORKER_PASSWORD%
+Miners\ccminer-x64-2.2.2-cuda9\ccminer-x64.exe -a lyra2z -o stratum+tcp://us-east.zcoin.miningpoolhub.com:20581 -u %MINER_WEBLOGIN%.%MINER_NAME2% -p %WORKER_PASSWORD%
 if %ERRORLEVEL% NEQ 0 goto exit
 pause
 
 :xzc2
 ECHO SGMiner - AMD Only - Zcoin to Miningpoolhub
-Miners\sgminer_5_4_0-lbry\sgminer.exe --kernel lyra2z -o stratum+tcp://us-east.zcoin.miningpoolhub.com:20581 -u %MINER_WEBLOGIN%.%MINER_NAME% -p %WORKER_PASSWORD% -I 19 -w 64 -g 4
+Miners\sgminer_5_4_0-lbry\sgminer.exe --kernel lyra2z -o stratum+tcp://us-east.zcoin.miningpoolhub.com:20581 -u %MINER_WEBLOGIN%.%MINER_NAME2% -p %WORKER_PASSWORD% -I 19 -w 64 -g 4
 if %ERRORLEVEL% NEQ 0 goto exit
 pause
 
@@ -938,13 +940,13 @@ pause
 ::
 :mona1
 ECHO CCMiner YIIMP - Nvidia Only - Monacoin to Miningpoolhub
-Miners\ccminer-x64-2.2.2-cuda9\ccminer-x64.exe -a lyra2z -o stratum+tcp://hub.miningpoolhub.com:20593 -u %MINER_WEBLOGIN%.%MINER_NAME% -p %WORKER_PASSWORD%
+Miners\ccminer-x64-2.2.2-cuda9\ccminer-x64.exe -a lyra2z -o stratum+tcp://hub.miningpoolhub.com:20593 -u %MINER_WEBLOGIN%.%MINER_NAME2% -p %WORKER_PASSWORD%
 if %ERRORLEVEL% NEQ 0 goto exit
 pause
 
 :mona2
 ECHO SGMiner - AMD Only - Monacoin to Miningpoolhub
-Miners\sgminer_5_4_0-lbry\sgminer.exe --kernel lyra2z -o stratum+tcp://hub.miningpoolhub.com:20593 -u %MINER_WEBLOGIN%.%MINER_NAME% -p %WORKER_PASSWORD% -I 19 -w 64 -g 4
+Miners\sgminer_5_4_0-lbry\sgminer.exe --kernel lyra2z -o stratum+tcp://hub.miningpoolhub.com:20593 -u %MINER_WEBLOGIN%.%MINER_NAME2% -p %WORKER_PASSWORD% -I 19 -w 64 -g 4
 if %ERRORLEVEL% NEQ 0 goto exit
 pause
 
